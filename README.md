@@ -45,7 +45,7 @@ Within `flye`, each sample is placed in individual folders, starting with a QC f
 - `02_Magm2`
 - `03_Magm3`
 
-![image](https://github.com/meeranhussain/CommandHub/assets/40800675/ff3f0490-ae0f-42d1-89da-db0feaba3a69)
+![image](https://github.com/meeranhussain/QuickTips/blob/main/Data_organisation.png)
 
 ## Step 6: Separate QC Files
 Quality check (QC) files can be the files generated while assessing the output of a particular dataset. For example, let's say we have FASTQ files which will undergo QC using tools like FastQC and MultiQC. The files generated from these tools should be organized into `00_QC` folders, and separated into individual folders for each sample within the QC folder. This ensures that QC results are clearly organized and easily accessible.

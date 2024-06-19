@@ -1,5 +1,5 @@
 # QuickTips
-This repository shares quick tips for better data management and terminal efficiency on servers and HPC systems. The content is derived from my daily usage and experience.
+This repository shares quick tips for better data management and terminal efficiency on servers and HPC systems. Also, provides a comprehensive collection of commands and scripts commonly used while analyzing sequencing data. The content is derived from my daily usage and experience.
 
 1. [How I Organize My Data on the Server?](#question1)
 2. [How to calculate number of reads in fastq file?](#question2)

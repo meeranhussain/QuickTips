@@ -20,9 +20,13 @@ Using numerical values before the folder name helps maintain order and also, ena
 Example: 01_Ma_gasm, 02_Ma_popgen
 
 **Step 4: Organize Analysis Steps Within Project Folders**
-Within each project folder, I organize the analysis steps as individual folders. Raw data comes first, followed by subsequent analysis steps.  
+Within each project folder, I organize the analysis steps as individual folders. Raw data comes first, followed by subsequent analysis steps. 
+
+Example: Within 01_Ma_gasm: 01_raw_data, 02_Base_calling, 03_ncgnm_asm. Further within 03_ncgnm_asm: 01_flye, 02_medaka. Within flye, each sample is placed in individual folders, starting with a QC folder: 00_QC, 01_Magm1, 02_Magm2, 03_Magm3
+
 
 ![image](https://github.com/meeranhussain/QuickTips/assets/40800675/ee4ceef6-7689-4b81-b2a0-dd2824d7d7a5)
 
 **Step 5: Separate QC Files**
+
 I keep QC (quality control) files in separate folders for each analysis step (as shown in the image).

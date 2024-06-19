@@ -7,7 +7,7 @@ This repository shares quick tips for better data management and terminal effici
 
 ## Step 1: Create Unique Project Folders
 I create unique project folders for each project. Each project folder contains a set of subfolders that organize the different stages of analysis. This structured approach ensures that all data and results related to a specific project are kept together, making it easier to manage, access, and navigate through the project's lifecycle.
- **Example:** `Ma_gasm`, `Ma_popgen`
+**Example:** `Ma_gasm`, `Ma_popgen`
 
 ## Step 2: Avoid Spaces in Folder Names
 Using spaces in folder names can lead to issues with command-line operations and scripts. Instead, use underscores (`_`) as word separators.  

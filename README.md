@@ -11,17 +11,17 @@ I create unique project folders for each project. Each project folder contains a
  **Example:** Genome assembly project: `01_Ma_gasm`, 
  Population genomics project: `02_Ma_popgen`
 
-## Step 2: Avoid Spaces in Folder Names
+## Step 2: Use Numerical Prefixes
+Using numerical values before the folder name helps maintain order and enables efficient use of the TAB key for quick access to any folder through terminal.  
+**Example:** `01_Ma_gasm`, `02_Ma_popgen`
+
+## Step 3: Avoid Spaces in Folder Names
 Using spaces in folder names can lead to issues with command-line operations and scripts. Instead, use underscores (`_`) as word separators.  
   **Example:** `Genome Assembly` should be `Genome_Assembly`.
 
-## Step 3: Use Short Forms
+## Step 4: Use Short Forms
 I prefer using short forms instead of lengthy titles in places where possible.  
 **Example:** `01_Maethiopoides_genome_assembly` (very long) becomes `01_Ma_gasm` (short and simple)
-
-## Step 4: Use Numerical Prefixes
-Using numerical values before the folder name helps maintain order and enables efficient use of the TAB key for quick access to any folder through terminal.  
-**Example:** `01_Ma_gasm`, `02_Ma_popgen`
 
 ## Step 5: Organize Analysis Steps Within Project Folders
 Within each project folder, I organize the analysis steps as individual folders. Raw data comes first, followed by subsequent analysis steps.  

@@ -4,11 +4,13 @@ This repository shares quick tips for better data management and terminal effici
 
 ## How I Organize My Data in Server? <a name="question1"></a>
 **Step 1: Create Unique Project Folders**
+
 I create unique project folders for each project.  
 
 Example: Ma_gasm, Ma_popgen
 
 **Step 2: Use Short Forms**
+
 I prefer using short forms instead of lengthy titles.  
 
 Example: 01_Maethiopoides_genome_assembly (very long) becomes 01_Ma_gasm (short and simple)
@@ -20,6 +22,7 @@ Using numerical values before the folder name helps maintain order and also, ena
 Example: 01_Ma_gasm, 02_Ma_popgen
 
 **Step 4: Organize Analysis Steps Within Project Folders**
+
 Within each project folder, I organize the analysis steps as individual folders. Raw data comes first, followed by subsequent analysis steps. 
 
 Example: Within 01_Ma_gasm: 01_raw_data, 02_Base_calling, 03_ncgnm_asm. Further within 03_ncgnm_asm: 01_flye, 02_medaka. Within flye, each sample is placed in individual folders, starting with a QC folder: 00_QC, 01_Magm1, 02_Magm2, 03_Magm3

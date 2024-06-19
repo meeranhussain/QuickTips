@@ -8,8 +8,8 @@ This repository shares quick tips for better data management and terminal effici
 ## Step 1: Create Unique Project Folders
 I create unique project folders for each project. Each project folder contains a set of subfolders that organize the different stages of analysis. This structured approach ensures that all data and results related to a specific project are kept together, making it easier to manage, access, and navigate through the project's lifecycle.
 
- **Example:** Genome assembly project: `01_Ma_gasm`, 
- Population genomics project: `02_Ma_popgen`
+ **Example:** Genome assembly project: `Ma_gasm`, 
+ Population genomics project: `Ma_popgen`
 
 ## Step 2: Use Numerical Prefixes
 Using numerical values before the folder name helps maintain order and enables efficient use of the TAB key for quick access to any folder through terminal.  

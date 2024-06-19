@@ -10,7 +10,7 @@ I create unique project folders for each project.
 **Example:** `Ma_gasm`, `Ma_popgen`
 
 ## Step 2: Avoid Spaces in Folder names
-Avoid Spaces in Folder Names**: Using spaces in folder names can lead to issues with command-line operations and scripts. Instead, use underscores (`_`) as word separators.  
+**Avoid Spaces in Folder Names**: Using spaces in folder names can lead to issues with command-line operations and scripts. Instead, use underscores (`_`) as word separators.  
   **Example:** `Genome Assembly` should be `Genome_Assembly`.
 
 ## Step 3: Use Short Forms

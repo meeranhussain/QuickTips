@@ -38,5 +38,5 @@ Within `flye`, each sample is placed in individual folders, starting with a QC f
 ![image](https://github.com/meeranhussain/QuickTips/assets/40800675/ee4ceef6-7689-4b81-b2a0-dd2824d7d7a5)
 
 ## Step 5: Separate QC Files
-I keep QC (quality control) files in separate folders for each analysis step (as shown above).
+I keep QC (quality check) files in separate folders for each analysis step (as shown above).
 

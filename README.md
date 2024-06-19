@@ -10,7 +10,7 @@ I create unique project folders for each project.
 **Example:** `Ma_gasm`, `Ma_popgen`
 
 ## Step 2: Use Short Forms
-I prefer using short forms instead of lengthy titles.  
+I prefer using short forms instead of lengthy titles in places where possible.  
 **Example:** `01_Maethiopoides_genome_assembly` (very long) becomes `01_Ma_gasm` (short and simple)
 
 ## Step 3: Use Numerical Prefixes

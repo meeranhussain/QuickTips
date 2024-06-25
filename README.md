@@ -6,6 +6,7 @@ This repository shares quick tips for better data management and terminal effici
 3. [How to calculate the average read depth after aligning reads to a reference genome?](#question3)
 4. [How to fetch mapped and unmapped reads from BAM file using samtools?](#question4)
 5. [How to Remove Lines in a Text File Above a Specific Sentence using sed in Bash? Example sentence : ">>>>>>> Coverage per contig"](#question5)
+6. [How to check delimiter of a file in bash?](#question6)
 
 # How I Organize My Data on the Server? <a name="question1"></a>
 
@@ -126,3 +127,34 @@ sed -i '1,/>>>>>>> Coverage per contig/d' yourfile.txt
 ```bash
 sed '1,/>>>>>>> Coverage per contig/d' yourfile.txt > newfile.txt
 ```
+# How to check delimiter of a file in bash? <a name="question6"></a>
+1. Save the following code as "delim_check.awk"
+```bash
+BEGIN {
+   sep[","]   = "comma"
+   sep["\\|"] = "pipe"
+   sep["\t"]  = "tab"
+}
+
+{
+    for (x in sep) {
+        c = gsub(x,"&",$0)
+        if (c) cnt[sep[x] " " (c+1)]++
+    }
+}
+
+END {
+    for (x in cnt) {
+        if (max == "" || cnt[x] > max) {
+            max = cnt[x]
+            est = x
+        }
+    }
+    print est
+}
+```
+2. Run the code as following:
+```bash
+awk -f delim_check.awk <file_to_check>
+```
+Prints type delimiter(tab, pipe, comma) with number of columns (int) 

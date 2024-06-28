@@ -120,6 +120,13 @@ samtools view -b -f 4 input.bam > output.bam
 ```
 “-f” flag to fetch unmapped reads
 
+**OR**
+
+Fetching mapped reads from BAM and output as Fastq files
+```bash
+samtools fastq -F 4 <imput.bam> > <output.fq>
+```
+
 # How to Remove Lines in a Text File Above a Specific Sentence using sed in Bash? [Example sentence : ">>>>>>> Coverage per contig"]  <a name="question5"></a>
 1. Edit within same file
 ```bash

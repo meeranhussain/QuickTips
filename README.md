@@ -164,7 +164,7 @@ Prints type delimiter(tab, pipe, comma) with number of columns (int)
 # How to verify data integrity using md5sum?  <a name="question7"></a>
 ## Syntax
 ```bash
-md5sum -c <list_of_files.txt>
+md5sum -c <list_of_files.md5>
 ```
 **Example:**
 Fastq files from SRA:

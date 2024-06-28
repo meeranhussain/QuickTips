@@ -124,7 +124,7 @@ samtools view -b -f 4 input.bam > output.bam
 
 Fetching mapped reads from BAM and output as Fastq files
 ```bash
-samtools fastq -F 4 <imput.bam> > <output.fq>
+samtools fastq -F 4 <input.bam> > <output.fq>
 ```
 
 # How to Remove Lines in a Text File Above a Specific Sentence using sed in Bash? [Example sentence : ">>>>>>> Coverage per contig"]  <a name="question5"></a>

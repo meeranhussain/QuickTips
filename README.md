@@ -6,7 +6,9 @@ This repository shares quick tips for better data management and terminal effici
 3. [How to calculate the average read depth after aligning reads to a reference genome?](#question3)
 4. [How to fetch mapped and unmapped reads from BAM file using samtools?](#question4)
 5. [How to Remove Lines in a Text File Above a Specific Sentence using sed in Bash? Example sentence : ">>>>>>> Coverage per contig"](#question5)
-6. [How to check delimiter of a file in bash?](#question6)
+6. [How to check the delimiter of a file in bash?](#question6)
+7. [How to verify data integrity using md5sum?](#question7)
+
 
 # How I Organize My Data on the Server? <a name="question1"></a>
 
@@ -127,7 +129,7 @@ sed -i '1,/>>>>>>> Coverage per contig/d' yourfile.txt
 ```bash
 sed '1,/>>>>>>> Coverage per contig/d' yourfile.txt > newfile.txt
 ```
-# How to check delimiter of a file in bash? <a name="question6"></a>
+# How to check the delimiter of a file in bash? <a name="question6"></a>
 1. Save the following code as "delim_check.awk"
 ```bash
 BEGIN {
@@ -158,3 +160,27 @@ END {
 awk -f delim_check.awk <file_to_check>
 ```
 Prints type delimiter(tab, pipe, comma) with number of columns (int) 
+
+# How to verify data integrity using md5sum?  <a name="question7"></a>
+## Syntax
+```bash
+md5sum -c <list_of_files.txt>
+```
+**Example:**
+Fastq files from SRA:
+![image](https://github.com/meeranhussain/QuickTips/assets/40800675/28d2602a-72f4-41ed-b28b-fdb2d8d956e0)
+
+1. Md5sum check on the fastq files and store in ".md5":
+```bash
+md5sum *.fastq.gz > md5sum_check.md5
+```
+Output of md5sum_check.md5:
+![image](https://github.com/meeranhussain/QuickTips/assets/40800675/5fd7ae9a-5a81-408f-a392-bc0fc0c07a25)
+
+2. Verify files
+```bash
+md5sum -c md5sum_check.md5
+```
+**Results: If "OK" files are good**
+![image](https://github.com/meeranhussain/QuickTips/assets/40800675/98f44190-f2ee-48f7-81c0-123c76bd8d3e)
+

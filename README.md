@@ -8,6 +8,7 @@ This repository shares quick tips for better data management and terminal effici
 5. [How to Remove Lines in a Text File Above a Specific Sentence using sed in Bash? Example sentence : ">>>>>>> Coverage per contig"](#question5)
 6. [How to check the delimiter of a file in bash?](#question6)
 7. [How to verify data integrity using md5sum?](#question7)
+8. [How to convert multi-line fasta to single-line fasta?](#question8) 
 
 
 # How I Organize My Data on the Server? <a name="question1"></a>
@@ -191,3 +192,29 @@ md5sum -c md5sum_check.md5
 **Results: If "OK" files are good**
 ![image](https://github.com/meeranhussain/QuickTips/assets/40800675/98f44190-f2ee-48f7-81c0-123c76bd8d3e)
 
+# How to convert multi-line fasta to single-line fasta? <a name="question8"></a>
+**Usage:** 
+```bash
+multi2singlefa.pl <input_multi.fasta> > <output_single.fasta>
+```
+## Perl script
+Save the following code as a Perl script
+```perl
+#!/usr/bin/perl -w
+use strict;
+
+my $input_fasta=$ARGV[0];
+open(IN,"<$input_fasta") || die ("Error opening $input_fasta $!");
+
+my $line = <IN>; 
+print $line;
+
+while ($line = <IN>)
+{
+chomp $line;
+if ($line=~m/^>/gi) { print "\n",$line,"\n"; }
+else { print $line; }
+}
+
+print "\n";
+```

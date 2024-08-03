@@ -8,7 +8,9 @@ This repository shares quick tips for better data management and terminal effici
 5. [How to Remove Lines in a Text File Above a Specific Sentence using sed in Bash? Example sentence : ">>>>>>> Coverage per contig"](#question5)
 6. [How to check the delimiter of a file in bash?](#question6)
 7. [How to verify data integrity using md5sum?](#question7)
-8. [How to convert multi-line fasta to single-line fasta?](#question8) 
+8. [How to convert multi-line fasta to single-line fasta?](#question8)
+9. [How to convert BAM to fastq and split to paired reads?](#question9) 
+
 
 
 # How I Organize My Data on the Server? <a name="question1"></a>
@@ -217,4 +219,28 @@ else { print $line; }
 }
 
 print "\n";
+```
+
+# How to convert BAM to fastq and split to paired reads? <a name="question9"></a> 
+
+## Step 1: Convert BAM to FASTQ
+
+Use `samtools` to convert your BAM file to a FASTQ file.
+
+```bash
+samtools bam2fq SAMPLE.bam > SAMPLE.fastq
+```
+## Step 2: Split Paired-End Reads
+Paired-end reads typically have /1 or /2 added to the end of read names. To split a single FASTQ file of paired-end reads into two separate files:
+
+1. Extract Reads Ending with /1 (Forward Reads):
+
+```bash
+cat SAMPLE.fastq | grep '^@.*/1$' -A 3 --no-group-separator > SAMPLE_r1.fastq
+```
+
+2. Extract Reads Ending with /2 (Reverse Reads):
+
+```bash
+cat SAMPLE.fastq | grep '^@.*/2$' -A 3 --no-group-separator > SAMPLE_r2.fastq
 ```

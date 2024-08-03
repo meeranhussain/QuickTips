@@ -231,7 +231,7 @@ Use `samtools` to convert your BAM file to a FASTQ file.
 samtools bam2fq SAMPLE.bam > SAMPLE.fastq
 ```
 ## Step 2: Split Paired-End Reads
-Paired-end reads typically have /1 or /2 added to the end of read names. To split a single FASTQ file of paired-end reads into two separate files:
+By using above command paired-end reads typically have /1 or /2 added to the end of read names. To split a single FASTQ file of paired-end reads into two separate files:
 
 1. Extract Reads Ending with /1 (Forward Reads):
 

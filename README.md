@@ -1,5 +1,5 @@
 # QuickTips
-This repository shares quick tips for better data management and terminal efficiency on servers and HPC systems. Also, provides a comprehensive collection of commands and scripts commonly used while analyzing sequencing data. The content is derived from my daily usage and experience.
+This repository shares quick tips for better data management and terminal efficiency on servers and HPC systems. Also, it provides a comprehensive collection of commands and scripts commonly used while analyzing sequencing data. The content is derived from my daily usage and experience.
 
 1. [How I Organize My Data on the Server?](#question1)
 2. [How to calculate number of reads in fastq file?](#question2)
@@ -9,7 +9,8 @@ This repository shares quick tips for better data management and terminal effici
 6. [How to check the delimiter of a file in bash?](#question6)
 7. [How to verify data integrity using md5sum?](#question7)
 8. [How to convert multi-line fasta to single-line fasta?](#question8)
-9. [How to convert BAM to fastq and split to paired reads?](#question9) 
+9. [How to convert BAM to fastq and split to paired reads?](#question9)
+10. [How to count reads in FASTQ files across multiple subdirectories?](#question10)
 
 
 
@@ -244,3 +245,103 @@ cat SAMPLE.fastq | grep '^@.*/1$' -A 3 --no-group-separator > SAMPLE_r1.fastq
 ```bash
 cat SAMPLE.fastq | grep '^@.*/2$' -A 3 --no-group-separator > SAMPLE_r2.fastq
 ```
+
+
+# Counting Reads in FASTQ Files Across Multiple Subdirectories  <a name="question10"></a>
+
+This part demonstrates how to efficiently count the number of reads in FASTQ files located in multiple subdirectories. This can be particularly useful when working with sequencing data organized by sample or experiment.
+
+---
+
+## Prerequisites
+
+- Access to a Unix/Linux terminal.
+- The `wc` command (available on most Unix/Linux systems).
+- The `zcat` command if working with gzipped files (`.fastq.gz`).
+- Your data should be organized in subdirectories.
+
+### Example Directory Structure
+
+Assume the following structure with subdirectories containing FASTQ files:
+
+```
+project_directory/
+├── HAM_01/
+│   ├── sample1.fastq
+│   ├── sample2.fastq
+├── INV_01/
+│   ├── sample3.fastq.gz
+│   ├── sample4.fastq.gz
+├── ...
+```
+
+---
+
+## Step 1: Counting Reads for Uncompressed FASTQ Files
+
+Use the following script to count reads in all `.fastq` files across subdirectories:
+
+```bash
+for dir in HAM_* INV_* IRE_* LIN_* NOR_*; do
+    for file in "$dir"/*.fastq; do
+        [ -e "$file" ] || continue  # Skip if no files are found
+        echo "$file: $(( $(wc -l < "$file") / 4 )) reads"
+    done
+done > read_counts.txt
+```
+
+### Explanation
+1. **`for dir in HAM_* INV_* IRE_* LIN_* NOR_*;`**: Loops through subdirectories matching the patterns (e.g., HAM_01, INV_01).
+2. **`for file in "$dir"/*.fastq;`**: Loops through `.fastq` files in each subdirectory.
+3. **`[ -e "$file" ] || continue`**: Ensures the loop skips if no matching files are found.
+4. **`wc -l < "$file"`**: Counts the number of lines in the file.
+5. **`/ 4`**: Divides the line count by 4 (each read in a FASTQ file has 4 lines).
+6. **`> read_counts.txt`**: Saves the output to a file named `read_counts.txt`.
+
+---
+
+## Step 2: Counting Reads for Gzipped FASTQ Files
+
+If your files are gzipped (`.fastq.gz`), use this modified script:
+
+```bash
+for dir in HAM_* INV_* IRE_* LIN_* NOR_*; do
+    for file in "$dir"/*.fastq.gz; do
+        [ -e "$file" ] || continue  # Skip if no files are found
+        echo "$file: $(( $(zcat "$file" | wc -l) / 4 )) reads"
+    done
+done > read_counts.txt
+```
+
+### Key Changes for Gzipped Files
+- **`zcat "$file"`**: Decompresses the gzipped file on-the-fly.
+- All other steps remain the same.
+
+---
+
+## Output
+
+Both scripts will produce a `read_counts.txt` file containing output in this format:
+
+```
+HAM_01/sample1.fastq: 50000 reads
+HAM_01/sample2.fastq: 60000 reads
+INV_01/sample3.fastq.gz: 75000 reads
+INV_01/sample4.fastq.gz: 80000 reads
+...
+```
+
+---
+
+## Notes
+
+- Replace `HAM_* INV_* IRE_* LIN_* NOR_*` with patterns that match your directory names if they differ.
+- Ensure your shell supports pattern matching (default in Bash).
+- For very large files, these commands might take some time to execute.
+
+---
+
+
+
+
+
